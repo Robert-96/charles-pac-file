@@ -1,0 +1,34 @@
+name: Main
+
+on: ['push']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Upload PAC file artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'proxy.pac'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
