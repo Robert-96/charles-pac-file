@@ -17,7 +17,7 @@ jobs:
       - name: Upload PAC file artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'proxy.pac'
+          path: 'dist/'
 
   deploy:
     needs: build
