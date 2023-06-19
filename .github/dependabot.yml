@@ -1,0 +1,9 @@
+version: 2
+
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    assignees:
+      - "Robert-96"
+    schedule:
+      interval: "weekly"
