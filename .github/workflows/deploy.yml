@@ -24,7 +24,7 @@ jobs:
           cp proxy.pac dist/
 
       - name: Upload PAC file artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist/'
 
