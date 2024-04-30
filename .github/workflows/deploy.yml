@@ -6,6 +6,11 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+
     steps:
       - uses: actions/checkout@v4
 
