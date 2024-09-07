@@ -1,16 +1,25 @@
 name: Main
 
-on: ['push', 'workflow_dispatch']
+on: ["push", "workflow_dispatch"]
+
+permissions: read-all
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Lint Code Base
-        uses: github/super-linter@v5
+        uses: super-linter/super-linter@v7.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -28,7 +37,7 @@ jobs:
       - name: Upload PAC file artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/'
+          path: "dist/"
 
   deploy:
     needs: build
