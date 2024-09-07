@@ -1,6 +1,8 @@
 name: Main
 
-on: ['push']
+on: ["push"]
+
+permissions: read-all
 
 jobs:
   lint:
@@ -35,7 +37,7 @@ jobs:
       - name: Upload PAC file artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/'
+          path: "dist/"
 
   deploy:
     needs: build
