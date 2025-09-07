@@ -29,9 +29,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-        with: 
+        with:
           persist-credentials: false
-          
+
       - name: Build
         run: |
           mkdir dist
