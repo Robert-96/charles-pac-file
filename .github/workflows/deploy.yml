@@ -24,7 +24,7 @@ jobs:
           cat .github/super-linter.env >> "$GITHUB_ENV"
 
       - name: Lint Code Base
-        uses: super-linter/super-linter@v8.2.1
+        uses: super-linter/super-linter@v8.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
